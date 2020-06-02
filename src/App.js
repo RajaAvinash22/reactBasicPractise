@@ -1,39 +1,44 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ClassClick from './components/ClassClick'
-import FuncClick from './components/FuncClick'
-import EventBind from './components/EventBind'
-import ParentComponent from './components/ParentComponent'
-import UserGreeting from './components/UserGreeting'
-import NameList from './components/NameList'
-import Form from './components/Form'
+import Hero from './components/Hero'
+import ErrorBound from './components/ErrorBound'
+import ClickCounter from './components/ClickCounter';
+import HoverCounter from './components/HoverCounter';
+import FragmentDemo from './components/FragmentDemo'
+import Table from './components/Table';
+import PortalDemo from './components/PortalDemo';
+import FRParentInput from './components/FRParentInput'
 
 function App() {
   return (
     <div className="App">
 
-       {/* handling event with funcComponent */}
-      <FuncClick />
+       {/* ERRROR Boundary */}
+      <ErrorBound>
+      <Hero heroName="BatMan" />
+      </ErrorBound>
+      <ErrorBound>
+      <Hero heroName="IronMan" />
+      </ErrorBound>
+      <ErrorBound>
+      <Hero heroName="Joker" />
+      </ErrorBound>
 
-      {/* handling event with classComponent */}
-      <ClassClick />
+      {/* Higher order compo */}
+       <ClickCounter name='Avinash'/>
+      <HoverCounter />
 
-      {/* binding of Event Handlers */}
-      <EventBind />
+       {/* FrageMents */}
+      <FragmentDemo />
+      <Table />
 
-      {/* child compo want to communicate with parent compo with passing arguments in child*/}
-      <ParentComponent />
+      {/* Portal for rendering DOM */}
+      <PortalDemo />
 
-      {/* Conditional Rendering */}
-      <UserGreeting />
+      {/* Forwarding Refs */}
+      <FRParentInput />
 
-      {/* List REndering */}
-      <NameList />
-
-      {/* Basics of form */}
-      {/* Basics of form */}
-      <Form />
     </div>
   );
 }
