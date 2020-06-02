@@ -1,43 +1,41 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Hero from './components/Hero'
-import ErrorBound from './components/ErrorBound'
-import ClickCounter from './components/ClickCounter';
-import HoverCounter from './components/HoverCounter';
-import FragmentDemo from './components/FragmentDemo'
-import Table from './components/Table';
-import PortalDemo from './components/PortalDemo';
-import FRParentInput from './components/FRParentInput'
-
+import PureComp from './components/PureComp'
+import ParentComp from './components/ParentComp'
+import RefsDemo from './components/RefsDemo';
+import FocusInput from './components/FocusInput';
+import ClickCounter2 from './components/ClickCounter2';
+import HoverCounter2 from './components/HoverCounter2';
+import User from './components/User';
+import RenderCounter from './components/RenderCounter';
 function App() {
   return (
     <div className="App">
 
-       {/* ERRROR Boundary */}
-      <ErrorBound>
-      <Hero heroName="BatMan" />
-      </ErrorBound>
-      <ErrorBound>
-      <Hero heroName="IronMan" />
-      </ErrorBound>
-      <ErrorBound>
-      <Hero heroName="Joker" />
-      </ErrorBound>
+      {/* Pure Component for class components */}
+      <PureComp />
+      <ParentComp />
 
-      {/* Higher order compo */}
-       <ClickCounter name='Avinash'/>
-      <HoverCounter />
+      {/* Refs in react */}
+      <RefsDemo />
+      <FocusInput />
 
-       {/* FrageMents */}
-      <FragmentDemo />
-      <Table />
-
-      {/* Portal for rendering DOM */}
-      <PortalDemo />
-
-      {/* Forwarding Refs */}
-      <FRParentInput />
+      {/* Render Props */}
+      {/* <ClickCounter2 />
+      <HoverCounter2 />
+      <User name={()=>'Avinash'} />
+      <User render={(isLoggedIn) => isLoggedIn ?'Avinash':'Guest'} />  */}
+       <RenderCounter>
+        {(count, increement) => (
+          <ClickCounter2 count={count} increement={increement} />
+        )}
+      </RenderCounter>
+      <RenderCounter>
+        {(count, increement) => (
+          <HoverCounter2 count={count} increement={increement} />
+        )}
+      </RenderCounter> 
 
     </div>
   );
