@@ -1,41 +1,23 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import PureComp from './components/PureComp'
-import ParentComp from './components/ParentComp'
-import RefsDemo from './components/RefsDemo';
-import FocusInput from './components/FocusInput';
-import ClickCounter2 from './components/ClickCounter2';
-import HoverCounter2 from './components/HoverCounter2';
-import User from './components/User';
-import RenderCounter from './components/RenderCounter';
+import CompoC from './components/CompoC'
+import { UserProvider} from './components/userContext'
+import PostForm from './components/PostForm';
+import PostList from './components/PostList';
 function App() {
   return (
     <div className="App">
 
-      {/* Pure Component for class components */}
-      <PureComp />
-      <ParentComp />
+      {/* Context implementing on components */}
+      <UserProvider value="Avinash">
+      <CompoC />
+      </UserProvider>
 
-      {/* Refs in react */}
-      <RefsDemo />
-      <FocusInput />
+      {/*  Http Post and Get Methods  */}
 
-      {/* Render Props */}
-      {/* <ClickCounter2 />
-      <HoverCounter2 />
-      <User name={()=>'Avinash'} />
-      <User render={(isLoggedIn) => isLoggedIn ?'Avinash':'Guest'} />  */}
-       <RenderCounter>
-        {(count, increement) => (
-          <ClickCounter2 count={count} increement={increement} />
-        )}
-      </RenderCounter>
-      <RenderCounter>
-        {(count, increement) => (
-          <HoverCounter2 count={count} increement={increement} />
-        )}
-      </RenderCounter> 
+      <PostList />
+      <PostForm />
 
     </div>
   );
